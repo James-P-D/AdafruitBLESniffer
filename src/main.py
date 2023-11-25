@@ -1,4 +1,3 @@
-# pip install pyserial
 import time
 from SnifferAPI import Sniffer, UART
 import argparse
@@ -74,7 +73,7 @@ def main(com_port, list_mode, follow_name):
                 print(f"{addr}")
         exit()
 
-    dev = all_devices.find("" if follow_name is None else f'"{follow_name}"')
+    dev = all_devices.find("" if follow_name is None else f""{follow_name}"")
 
     if dev is not None:
         mySniffer.follow(dev)
@@ -86,10 +85,10 @@ def main(com_port, list_mode, follow_name):
         loop(follow_name)
 
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Process some integers.')
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Process some integers.")
     parser.add_argument("-l",
-                        action='store_true',
+                        action="store_true",
                         help="List known BLE devices")
     parser.add_argument("-c",
                         metavar="COM port",
