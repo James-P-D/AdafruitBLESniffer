@@ -27,7 +27,7 @@ Use the `-h` parameter to see the usage for the script:
 c:\AdafruitBLESniffer>python main.py -h
 usage: main.py [-h] [-l] -c COM port [-n [follow name]]
 
-Process some integers.
+Adafruit BLE Sniffer
 
 options:
   -h, --help        show this help message and exit
