@@ -25,15 +25,17 @@ Use the `-h` parameter to see the usage for the script:
 
 ```
 c:\AdafruitBLESniffer>python main.py -h
-usage: main.py [-h] [-l] -c COM port [-n [follow name]]
+usage: main.py [-h] [-l] -c [COM port] [-n Follow name] [-p PCAPNG output file]
 
 Adafruit BLE Sniffer
 
 options:
-  -h, --help        show this help message and exit
-  -l                List known BLE devices
-  -c COM port       COM port for Adafruit Bluefruit device
-  -n [follow name]  BLE device name to follow
+  -h, --help            show this help message and exit
+  -l                    List known BLE devices
+  -c [COM port]         COM port for Adafruit Bluefruit device
+  -n Follow name        BLE device name to follow
+  -p PCAPNG output file
+                        Path to PCAPNG file to dump packets
 ```
 
 We can use `-c` to specify the COM port our BlueFruit device is plugged into, and `-l` to list all known BLE devices:
@@ -88,8 +90,18 @@ d6 be 89 8e 00 21 48 30 6d 26 e1 80 02 01 06 10 | Ö¾...!H0m&á.....
 
 Note that packets matching the `-n` parameter will appear in blue, malformed packets will appear in red, and all other valid packets will appear in green.
 
-Finally we can omit the `-n` parameter altogether to see all packets:
+We can omit the `-n` parameter altogether to see all packets:
 
 ```
 c:\AdafruitBLESniffer>python main.py -c COM16
 ```
+
+Finally, we can use the `-p` parameter to dump all our traffic to a .PCAPNG file:
+
+```
+c:\AdafruitBLESniffer>python main.py -c COM16 -n "Control H0lwh1n" -p dump.pcapng
+```
+
+..which we can analyse later in [WireShark](https://www.wireshark.org/):
+
+![Wireshark Screenshot](https://github.com/James-P-D/AdafruitBLESniffer/blob/main/Wireshark.png)
